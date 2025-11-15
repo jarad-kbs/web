@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Container from './ui/Container';
 import Section from './ui/Section';
+import { Waves, Shield, TreePine } from 'lucide-react';
 
 export default function Strategies() {
   const strategies = [
@@ -11,6 +12,7 @@ export default function Strategies() {
       description:
         'Pond levelers are flow devices installed through beaver dams to regulate water levels without triggering their building instincts. By quietly draining excess water, they prevent flooding of roads, fields, or yards while allowing beavers to maintain their habitat. This coexistence tool protects property and preserves the ecological value of wetlands',
       image: '/pond-leveler.jpg',
+      icon: <Waves className="w-5 h-5 text-white" />,
     },
     {
       title: 'Culvert protection',
@@ -18,6 +20,7 @@ export default function Strategies() {
       description:
         'Beavers often target culverts for damming, which can block water flow and cause costly flooding or road damage. Culvert protection devices provide a humane, effective solution—maintaining natural beaver activity while keeping infrastructure safe. We design and install barriers that balance ecosystem needs with property and community resilience',
       image: '/culvert-protection.jpg',
+      icon: <Shield className="w-5 h-5 text-white" />,
     },
     {
       title: 'Tree Caging',
@@ -25,6 +28,7 @@ export default function Strategies() {
       description:
         'We protect vulnerable trees from beaver chewing by installing sturdy wire mesh around trunks. This simple, non-invasive method allows beavers to thrive without losing valuable shade trees, riparian buffers, or landscaping. Tree caging balances ecological benefits with landowner needs, ensuring both forests and waterways remain resilient',
       image: '/tree-caging.jpg',
+      icon: <TreePine className="w-5 h-5 text-white" />,
     },
   ];
 
@@ -56,7 +60,9 @@ export default function Strategies() {
               </div>
               <div className="p-6">
                 <div className="flex items-start gap-2 mb-2">
-                  <div className="w-5 h-5 bg-orange-500 rounded-sm flex-shrink-0 mt-1"></div>
+                  <div className="bg-orange-500 rounded-sm flex-shrink-0 mt-1 p-1">
+                    {strategy.icon}
+                  </div>
                   <h3 className="text-xl font-bold text-gray-900">
                     {strategy.title}
                   </h3>
