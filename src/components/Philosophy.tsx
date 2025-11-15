@@ -10,19 +10,19 @@ export default function Philosophy() {
       title: 'Coexistence first',
       description:
         'Beavers and human infrastructure can coexist when engineering meets ecological understanding',
-      icon: <Globe2 className="w-12 h-12 text-blue-600" />,
-    },
-    {
-      title: 'Regulation as guidance',
-      description:
-        "Oregon's regulatory framework ensures solutions protect fish passage, wetland function, and sustainability",
-      icon: <ShieldCheck className="w-12 h-12 text-green-600" />,
+      icon: <Globe2 className="w-8 h-8 text-white" />,
     },
     {
       title: 'Prevention over reaction',
       description:
         'Well-designed installations with maintenance prevent costly dam removal cycles and repeated conflicts',
-      icon: <ClipboardCheck className="w-12 h-12 text-blue-600" />,
+      icon: <ClipboardCheck className="w-8 h-8 text-white" />,
+    },
+    {
+      title: 'Regulation as guidance',
+      description:
+        "Oregon's regulatory framework ensures solutions protect fish passage, wetland function, and sustainability",
+      icon: <ShieldCheck className="w-8 h-8 text-white" />,
     },
   ];
 
@@ -42,7 +42,9 @@ export default function Philosophy() {
           {principles.map((principle, index) => (
             <Card key={index}>
               <div className="flex flex-col items-center text-center">
-                <div className="mb-4">{principle.icon}</div>
+                <div className="bg-orange-500 rounded-lg p-3 mb-4">
+                  {principle.icon}
+                </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
                   {principle.title}
                 </h3>

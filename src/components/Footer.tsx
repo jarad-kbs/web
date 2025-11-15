@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-50 text-gray-900 py-12">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
             <Link href="/" className="inline-block mb-4 hover:opacity-80 transition-opacity">
@@ -21,7 +21,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-sm text-gray-700">
-              Coexistence solutions for Oregon&apos;s waterways
+              Coexistence strategies for Oregon&apos;s waterways
             </p>
           </div>
 
@@ -37,22 +37,9 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-gray-900 font-semibold mb-4">Quick Links</h4>
-            <div className="flex flex-col gap-2 text-sm text-gray-700">
-              <Link href="#strategies" className="hover:text-gray-900 transition-colors">
-                Strategies
-              </Link>
-              <Link href="#values" className="hover:text-gray-900 transition-colors">
-                Values
-              </Link>
-            </div>
-          </div>
-
           {/* Contact */}
           <div>
-            <h4 className="text-gray-900 font-semibold mb-4">Contact</h4>
+            <h4 className="text-gray-900 font-semibold mb-4 border-b-2 border-gray-900 pb-2 inline-block">Contact</h4>
             <div className="flex flex-col gap-2 text-sm text-gray-700">
               <a
                 href="mailto:jarad@keystonebeaverstrategies.com"

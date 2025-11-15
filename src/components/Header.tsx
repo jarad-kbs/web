@@ -12,7 +12,7 @@ export default function Header() {
   const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'Strategies', href: '#strategies' },
-    { name: 'Values', href: '#values' },
+    { name: 'Philosophy', href: '#values' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -21,14 +21,15 @@ export default function Header() {
       <Container>
         <nav className="flex items-center justify-between py-4">
           {/* Logo */}
-          <Link href="/" className="hover:opacity-80 transition-opacity">
+          <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
             <Image
-              src="/logo.svg"
+              src="/beaver-logo.svg"
               alt="Keystone Beaver Strategies"
-              width={200}
-              height={60}
+              width={50}
+              height={50}
               priority
             />
+            <span className="text-xl font-medium text-gray-700 transition-colors">Keystone Beaver Strategies</span>
           </Link>
 
           {/* Desktop Navigation */}
