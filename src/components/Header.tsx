@@ -55,7 +55,6 @@ export default function Header() {
             ) : (
               <Menu className="w-6 h-6" />
             )}
-            can{" "}
           </button>
         </nav>
 
