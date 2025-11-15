@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+
+  /* Primary colors - Water/Nature theme */
+  --primary: #2563eb; /* Blue for water */
+  --primary-dark: #1e40af;
+  --primary-light: #3b82f6;
+
+  /* Accent colors */
+  --accent: #059669; /* Green for nature/ecology */
+  --accent-dark: #047857;
+  --accent-light: #10b981;
+
+  /* Neutral colors */
+  --neutral-50: #f9fafb;
+  --neutral-100: #f3f4f6;
+  --neutral-200: #e5e7eb;
+  --neutral-300: #d1d5db;
+  --neutral-400: #9ca3af;
+  --neutral-500: #6b7280;
+  --neutral-600: #4b5563;
+  --neutral-700: #374151;
+  --neutral-800: #1f2937;
+  --neutral-900: #111827;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-satoshi);
+  --font-mono: var(--font-jetbrains-mono);
+  --font-work-sans: var(--font-work-sans);
+  --font-garamond: var(--font-eb-garamond);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-satoshi), sans-serif;
+}
