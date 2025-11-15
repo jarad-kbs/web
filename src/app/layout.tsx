@@ -35,7 +35,21 @@ const ebGaramond = localFont({
 
 export const metadata: Metadata = {
   title: "Keystone Beaver Strategies LLC",
-  description: "Coexistence solutions for Oregon's waterways. Helping landowners manage water and wildlife harmoniously through beaver coexistence strategies.",
+  description: "Portland Oregon based beaver coexistence specialist",
+  openGraph: {
+    title: "Keystone Beaver Strategies LLC",
+    description: "Portland Oregon based beaver coexistence specialist",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Keystone Beaver Strategies LLC",
+    description: "Portland Oregon based beaver coexistence specialist",
+  },
+  icons: {
+    icon: "/favicon.png",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
