@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import Container from './ui/Container';
-import { Menu, X } from 'lucide-react';
+import React, { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import Container from "./ui/Container";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Strategies', href: '#strategies' },
-    { name: 'Philosophy', href: '#values' },
-    { name: 'Contact', href: '#contact' },
+    { name: "Home", href: "#home" },
+    { name: "Strategies", href: "#strategies" },
+    { name: "Values", href: "#values" },
+    { name: "Contact", href: "#contact" },
   ];
 
   return (
@@ -21,15 +21,14 @@ export default function Header() {
       <Container>
         <nav className="flex items-center justify-between py-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <Link href="/" className="hover:opacity-80 transition-opacity">
             <Image
-              src="/beaver-logo.svg"
+              src="/logo.svg"
               alt="Keystone Beaver Strategies"
-              width={50}
-              height={50}
+              width={200}
+              height={60}
               priority
             />
-            <span className="text-xl font-medium text-gray-700 transition-colors">Keystone Beaver Strategies</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -56,6 +55,7 @@ export default function Header() {
             ) : (
               <Menu className="w-6 h-6" />
             )}
+            can{" "}
           </button>
         </nav>
 
