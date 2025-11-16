@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import Container from './ui/Container';
-import { Menu, X } from 'lucide-react';
+import React, { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import Container from "./ui/Container";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Strategies', href: '#strategies' },
-    { name: 'Values', href: '#values' },
-    { name: 'Contact', href: '#contact' },
+    { name: "Home", href: "#home" },
+    { name: "Strategies", href: "#strategies" },
+    { name: "Philosophy", href: "#values" },
+    { name: "Contact", href: "#contact" },
   ];
 
   return (
