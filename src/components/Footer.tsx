@@ -31,7 +31,7 @@ export default function Footer() {
               Service Areas
             </h4>
             <div className="flex flex-col gap-2 text-sm text-gray-700">
-              <p>Portland Core and West Hills</p>
+              <p>Portland Metro and West Hills</p>
               <p>Tualatin River Watershed</p>
               <p>Johnson Creek Watershed</p>
             </div>

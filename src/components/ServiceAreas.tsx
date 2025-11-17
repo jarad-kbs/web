@@ -6,7 +6,7 @@ import { MapPin } from 'lucide-react';
 export default function ServiceAreas() {
   const areas = [
     {
-      name: 'Portland Core and West Hills',
+      name: 'Portland Metro and West Hills',
       description: 'Serving the heart of Portland and surrounding hillside communities',
     },
     {

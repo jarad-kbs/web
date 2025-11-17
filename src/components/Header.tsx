@@ -21,14 +21,18 @@ export default function Header() {
       <Container>
         <nav className="flex items-center justify-between py-4">
           {/* Logo */}
-          <Link href="/" className="hover:opacity-80 transition-opacity">
+          <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
             <Image
-              src="/logo.svg"
-              alt="Keystone Beaver Strategies"
-              width={200}
-              height={60}
+              src="/beaver-logo.svg"
+              alt="Keystone Beaver Strategies Beaver Icon"
+              width={50}
+              height={50}
               priority
             />
+            <div className="h-10 w-px bg-gray-900"></div>
+            <span className="text-gray-900 font-bold text-sm md:text-base tracking-wider uppercase whitespace-nowrap">
+              KEYSTONE BEAVER STRATEGIES
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
