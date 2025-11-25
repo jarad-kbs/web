@@ -7,7 +7,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-50 text-gray-900 py-12">
+    <footer className="bg-white text-gray-900 py-12 ml-6 md:ml-36 relative z-10 shadow-2xl">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
@@ -27,7 +27,7 @@ export default function Footer() {
 
           {/* Service Areas */}
           <div>
-            <h4 className="text-gray-900 font-semibold mb-4 border-b-2 border-gray-900 pb-2 inline-block">
+            <h4 className="text-gray-900 font-semibold mb-4 border-b-2 border-orange-500 pb-2 inline-block">
               Service Areas
             </h4>
             <div className="flex flex-col gap-2 text-sm text-gray-700">
@@ -39,17 +39,17 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-gray-900 font-semibold mb-4 border-b-2 border-gray-900 pb-2 inline-block">Contact</h4>
+            <h4 className="text-gray-900 font-semibold mb-4 border-b-2 border-orange-500 pb-2 inline-block">Contact</h4>
             <div className="flex flex-col gap-2 text-sm text-gray-700">
               <a
                 href="mailto:jarad@keystonebeaverstrategies.com"
-                className="hover:text-gray-900 transition-colors break-words"
+                className="hover:text-orange-500 transition-colors break-words"
               >
                 jarad@keystonebeaverstrategies.com
               </a>
               <a
                 href="tel:+16035813197"
-                className="hover:text-gray-900 transition-colors"
+                className="hover:text-orange-500 transition-colors"
               >
                 (603) 581-3197
               </a>

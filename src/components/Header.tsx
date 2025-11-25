@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Container from "./ui/Container";
 import { Menu, X } from "lucide-react";
 
 export default function Header() {
@@ -17,41 +16,58 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
-      <Container>
-        <nav className="flex items-center justify-between py-4">
+    <>
+      {/* Desktop Sidebar */}
+      <header className="hidden md:flex fixed left-0 top-0 h-screen w-24 hover:w-64 z-50 bg-white/85 backdrop-blur-sm shadow-lg flex-col items-start py-8 px-6 transition-all duration-300 ease-in-out group">
+        {/* Logo and Name */}
+        <Link href="/" className="mb-12 hover:opacity-80 transition-opacity self-center flex flex-col items-center gap-3">
+          <Image
+            src="/beaver-logo.svg"
+            alt="Keystone Beaver Strategies"
+            width={60}
+            height={60}
+            priority
+          />
+          <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-gray-900 font-bold text-xs text-center tracking-wider uppercase whitespace-nowrap">
+            Keystone Beaver<br />Strategies
+          </span>
+        </Link>
+
+        {/* Navigation */}
+        <nav className="flex flex-col gap-6 flex-1 w-full">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className="text-gray-700 hover:text-orange-500 transition-colors font-medium text-base flex items-center gap-4 whitespace-nowrap"
+            >
+              <span className="w-2 h-2 rounded-full bg-gray-400 group-hover:bg-orange-500 transition-colors flex-shrink-0"></span>
+              <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {link.name}
+              </span>
+            </Link>
+          ))}
+        </nav>
+      </header>
+
+      {/* Mobile Header */}
+      <header className="md:hidden sticky top-0 z-50 bg-white/85 backdrop-blur-sm shadow-sm">
+        <div className="flex items-center justify-between px-4 py-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <Link href="/" className="hover:opacity-80 transition-opacity">
             <Image
               src="/beaver-logo.svg"
-              alt="Keystone Beaver Strategies Beaver Icon"
+              alt="Keystone Beaver Strategies"
               width={50}
               height={50}
               priority
             />
-            <div className="h-10 w-px bg-gray-900"></div>
-            <span className="text-gray-900 font-bold text-sm md:text-base tracking-wider uppercase whitespace-nowrap">
-              KEYSTONE BEAVER STRATEGIES
-            </span>
           </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-gray-700 hover:text-blue-600"
+            className="p-2 text-gray-700 hover:text-orange-500"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? (
@@ -60,16 +76,16 @@ export default function Header() {
               <Menu className="w-6 h-6" />
             )}
           </button>
-        </nav>
+        </div>
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden pb-4">
+          <div className="px-4 pb-4">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="block py-2 text-gray-700 hover:text-blue-600 transition-colors font-medium"
+                className="block py-2 text-gray-700 hover:text-orange-500 transition-colors font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.name}
@@ -77,7 +93,7 @@ export default function Header() {
             ))}
           </div>
         )}
-      </Container>
-    </header>
+      </header>
+    </>
   );
 }

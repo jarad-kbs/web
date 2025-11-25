@@ -27,32 +27,30 @@ export default function Philosophy() {
   ];
 
   return (
-    <Section id="values" backgroundColor="gray">
+    <Section id="values" backgroundColor="dark">
       <Container>
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <div className="mb-16 pl-4 md:pl-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Our Philosophy
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-300 max-w-2xl">
             Three core principles guide our approach to beaver coexistence
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pl-4 md:pl-8">
           {principles.map((principle, index) => (
-            <Card key={index}>
-              <div className="flex flex-col items-center text-center">
-                <div className="mb-4">
-                  {principle.icon}
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  {principle.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {principle.description}
-                </p>
+            <div key={index} className="flex flex-col items-center text-center">
+              <div className="mb-4 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">
+                {principle.icon}
               </div>
-            </Card>
+              <h3 className="text-xl font-bold text-white mb-3 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                {principle.title}
+              </h3>
+              <p className="text-gray-300 leading-relaxed drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">
+                {principle.description}
+              </p>
+            </div>
           ))}
         </div>
       </Container>

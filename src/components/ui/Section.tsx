@@ -4,7 +4,7 @@ interface SectionProps {
   children: React.ReactNode;
   id?: string;
   className?: string;
-  backgroundColor?: 'white' | 'gray' | 'blue';
+  backgroundColor?: 'white' | 'gray' | 'blue' | 'dark';
 }
 
 export default function Section({
@@ -14,9 +14,10 @@ export default function Section({
   backgroundColor = 'white',
 }: SectionProps) {
   const bgColors = {
-    white: 'bg-white',
-    gray: 'bg-gray-50',
-    blue: 'bg-blue-50',
+    white: 'bg-white/85',
+    gray: 'bg-gray-100/85',
+    blue: 'bg-blue-100/85',
+    dark: 'bg-gray-900/85',
   };
 
   return (

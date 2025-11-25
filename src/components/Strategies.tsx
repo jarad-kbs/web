@@ -35,22 +35,22 @@ export default function Strategies() {
   return (
     <Section id="strategies" backgroundColor="white">
       <Container>
-        <div className="text-center mb-16">
+        <div className="mb-16 pl-4 md:pl-8">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Our Strategies
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl">
             Built for resilience, designed for compliance
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex flex-col gap-8 pl-4 md:pl-8">
           {strategies.map((strategy, index) => (
             <div
               key={index}
-              className="bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow"
+              className="bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow flex flex-col md:flex-row"
             >
-              <div className="relative h-64 w-full">
+              <div className="relative h-64 md:h-auto md:w-2/5 flex-shrink-0">
                 <Image
                   src={strategy.image}
                   alt={strategy.title}
@@ -58,7 +58,7 @@ export default function Strategies() {
                   className="object-cover"
                 />
               </div>
-              <div className="p-6">
+              <div className="p-6 md:p-8 flex-1">
                 <div className="flex items-start gap-2 mb-2">
                   <div className="bg-orange-500 rounded-sm flex-shrink-0 mt-1 p-1">
                     {strategy.icon}
