@@ -1,24 +1,48 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronRight } from "lucide-react";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "Strategies", href: "#strategies" },
-    { name: "Philosophy", href: "#values" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "#home", id: "home", icon: ChevronRight },
+    { name: "Strategies", href: "#strategies", id: "strategies", icon: ChevronRight },
+    { name: "Philosophy", href: "#values", id: "values", icon: ChevronRight },
+    { name: "Contact", href: "#contact", id: "contact", icon: ChevronRight },
   ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navLinks.map(link => link.id);
+
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          // Check if section is in viewport (with some offset for better UX)
+          if (rect.top <= 150 && rect.bottom >= 150) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check initial position
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
       {/* Desktop Sidebar */}
-      <header className="hidden md:flex fixed left-0 top-0 h-screen w-24 hover:w-64 z-50 bg-white/85 backdrop-blur-sm shadow-lg flex-col items-start py-8 px-6 transition-all duration-300 ease-in-out group">
+      <header className="hidden md:flex fixed left-0 top-0 h-screen w-24 hover:w-64 z-50 bg-white/85 backdrop-blur-sm shadow-lg flex-col items-center py-8 px-6 transition-all duration-500 ease-in-out group">
         {/* Logo and Name */}
         <Link href="/" className="mb-12 hover:opacity-80 transition-opacity self-center flex flex-col items-center gap-3">
           <Image
@@ -28,25 +52,29 @@ export default function Header() {
             height={60}
             priority
           />
-          <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-gray-900 font-bold text-xs text-center tracking-wider uppercase whitespace-nowrap">
+          <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-gray-900 font-bold text-xs text-center tracking-wider uppercase whitespace-nowrap">
             Keystone Beaver<br />Strategies
           </span>
         </Link>
 
         {/* Navigation */}
-        <nav className="flex flex-col gap-6 flex-1 w-full">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="text-gray-700 hover:text-orange-500 transition-colors font-medium text-base flex items-center gap-4 whitespace-nowrap"
-            >
-              <span className="w-2 h-2 rounded-full bg-gray-400 group-hover:bg-orange-500 transition-colors flex-shrink-0"></span>
-              <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                {link.name}
-              </span>
-            </Link>
-          ))}
+        <nav className="flex flex-col gap-6 flex-1 w-full items-center">
+          {navLinks.map((link) => {
+            const Icon = link.icon;
+            const isActive = activeSection === link.id;
+            return (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="text-gray-700 hover:text-orange-500 transition-colors font-medium text-base flex items-center gap-4 whitespace-nowrap w-full justify-center group-hover:justify-start"
+              >
+                <Icon className={`w-5 h-5 ${isActive ? 'text-orange-500 rotate-90' : 'text-gray-400'} group-hover:text-orange-500 transition-all duration-500 ease-in-out flex-shrink-0`} />
+                <span className="w-0 opacity-0 overflow-hidden group-hover:w-auto group-hover:opacity-100 transition-all duration-500 ease-in-out">
+                  {link.name}
+                </span>
+              </Link>
+            );
+          })}
         </nav>
       </header>
 
@@ -81,16 +109,21 @@ export default function Header() {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="px-4 pb-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="block py-2 text-gray-700 hover:text-orange-500 transition-colors font-medium"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {link.name}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const Icon = link.icon;
+              const isActive = activeSection === link.id;
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="flex items-center gap-3 py-2 text-gray-700 hover:text-orange-500 transition-colors font-medium"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <Icon className={`w-5 h-5 ${isActive ? 'text-orange-500 rotate-90' : ''} transition-all duration-500 ease-in-out`} />
+                  {link.name}
+                </Link>
+              );
+            })}
           </div>
         )}
       </header>
