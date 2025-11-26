@@ -50,26 +50,20 @@ export default function Home() {
         </div>
 
         <div className="py-12">
-          <div className="relative">
-            <div className="absolute left-4 md:left-10 -top-2 w-4 h-4 bg-slate-500 rounded-full z-10"></div>
-            <div className="bg-white shadow-2xl overflow-hidden ml-6 md:ml-12">
-              <Strategies />
-            </div>
-            <div className="absolute left-4 md:left-10 -bottom-2 w-4 h-4 bg-slate-500 rounded-full z-10"></div>
+          <div className="relative bg-white shadow-2xl overflow-hidden ml-6 md:ml-12">
+            <div className="absolute -left-2 -top-2 w-4 h-4 bg-slate-500 rounded-full"></div>
+            <Strategies />
+            <div className="absolute -left-2 -bottom-2 w-4 h-4 bg-slate-500 rounded-full"></div>
           </div>
 
-          <div className="relative">
-            <div className="bg-white shadow-2xl overflow-hidden ml-6 md:ml-12">
-              <Philosophy />
-            </div>
-            <div className="absolute left-4 md:left-10 -bottom-2 w-4 h-4 bg-slate-500 rounded-full z-10"></div>
+          <div className="relative bg-white shadow-2xl overflow-hidden ml-6 md:ml-12">
+            <Philosophy />
+            <div className="absolute -left-2 -bottom-2 w-4 h-4 bg-slate-500 rounded-full"></div>
           </div>
 
-          <div className="relative">
-            <div className="bg-white shadow-2xl overflow-hidden ml-6 md:ml-12">
-              <Contact />
-            </div>
-            <div className="absolute left-4 md:left-10 -bottom-2 w-4 h-4 bg-slate-500 rounded-full z-10"></div>
+          <div className="relative bg-white shadow-2xl overflow-hidden ml-6 md:ml-12">
+            <Contact />
+            <div className="absolute -left-2 -bottom-2 w-4 h-4 bg-slate-500 rounded-full"></div>
           </div>
         </div>
       </main>

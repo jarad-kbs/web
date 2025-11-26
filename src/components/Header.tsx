@@ -53,11 +53,12 @@ export default function Header() {
         {/* Logo and Name */}
         <Link href="/" className="mb-12 hover:opacity-80 transition-opacity self-center flex flex-col items-center gap-3">
           <Image
-            src="/beaver-logo.svg"
+            src="/Vector 1.svg"
             alt="Keystone Beaver Strategies"
             width={60}
             height={60}
             priority
+            className="transition-[filter] duration-700 ease-in-out [filter:grayscale(0)] group-hover:[filter:brightness(0)_saturate(100%)_invert(66%)_sepia(73%)_saturate(5478%)_hue-rotate(356deg)_brightness(102%)_contrast(97%)]"
           />
           <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-gray-900 font-bold text-xs text-center tracking-wider uppercase whitespace-nowrap">
             Keystone Beaver<br />Strategies
@@ -113,7 +114,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="hover:opacity-80 transition-opacity">
             <Image
-              src="/beaver-logo.svg"
+              src="/Vector 1.svg"
               alt="Keystone Beaver Strategies"
               width={50}
               height={50}
