@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, ChevronRight } from "lucide-react";
+import { Menu, X, ChevronRight, Facebook, Instagram } from "lucide-react";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -19,6 +19,7 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       const sections = navLinks.map(link => link.id);
+      let foundSection = false;
 
       for (const sectionId of sections) {
         const element = document.getElementById(sectionId);
@@ -27,9 +28,15 @@ export default function Header() {
           // Check if section is in viewport (with some offset for better UX)
           if (rect.top <= 150 && rect.bottom >= 150) {
             setActiveSection(sectionId);
+            foundSection = true;
             break;
           }
         }
+      }
+
+      // If no section is in the detection zone, check if we're at the top
+      if (!foundSection && window.scrollY < 100) {
+        setActiveSection("home");
       }
     };
 
@@ -66,7 +73,7 @@ export default function Header() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-gray-700 hover:text-orange-500 transition-colors font-medium text-base flex items-center gap-4 whitespace-nowrap w-full justify-center group-hover:justify-start"
+                className="text-gray-700 hover:text-orange-500 transition-colors font-medium text-base flex items-center gap-4 whitespace-nowrap w-full pl-3 group-hover:pl-0 group-hover:justify-start"
               >
                 <Icon className={`w-5 h-5 ${isActive ? 'text-orange-500 rotate-90' : 'text-gray-400'} group-hover:text-orange-500 transition-all duration-500 ease-in-out flex-shrink-0`} />
                 <span className="w-0 opacity-0 overflow-hidden group-hover:w-auto group-hover:opacity-100 transition-all duration-500 ease-in-out">
@@ -76,6 +83,28 @@ export default function Header() {
             );
           })}
         </nav>
+
+        {/* Social Media Links */}
+        <div className="flex flex-col items-center gap-4 mt-6">
+          <Link
+            href="https://www.instagram.com/keystonebeaverstrategies/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-600 hover:text-orange-500 transition-colors"
+            aria-label="Instagram"
+          >
+            <Instagram className="w-5 h-5" />
+          </Link>
+          <Link
+            href="https://www.facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-600 hover:text-orange-500 transition-colors"
+            aria-label="Facebook"
+          >
+            <Facebook className="w-5 h-5" />
+          </Link>
+        </div>
       </header>
 
       {/* Mobile Header */}
@@ -124,6 +153,28 @@ export default function Header() {
                 </Link>
               );
             })}
+
+            {/* Social Media Links */}
+            <div className="flex flex-col items-center gap-4 mt-4 pt-4 border-t border-gray-200">
+              <Link
+                href="https://www.instagram.com/keystonebeaverstrategies/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-orange-500 transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5" />
+              </Link>
+              <Link
+                href="https://www.facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-orange-500 transition-colors"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-5 h-5" />
+              </Link>
+            </div>
           </div>
         )}
       </header>
