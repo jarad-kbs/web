@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const jetbrainsMono = JetBrains_Mono({
@@ -63,6 +64,7 @@ export default function RootLayout({
         className={`${satoshi.variable} ${satoshi.className} ${jetbrainsMono.variable} ${workSans.variable} ${ebGaramond.variable} antialiased`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
