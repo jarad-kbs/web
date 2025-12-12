@@ -11,16 +11,16 @@ export default function Footer() {
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
-          <div>
+          <div className="flex flex-col items-center">
             <Link href="/" className="inline-block mb-4 hover:opacity-80 transition-opacity">
               <Image
-                src="/footer-logo.svg"
+                src="/Logo Title below.svg"
                 alt="Keystone Beaver Strategies"
                 width={150}
                 height={45}
               />
             </Link>
-            <p className="text-sm text-gray-700">
+            <p className="text-sm text-gray-700 text-center">
               Coexistence strategies for Oregon&apos;s waterways
             </p>
           </div>

@@ -53,7 +53,7 @@ export default function Header() {
         {/* Logo and Name */}
         <Link href="/" className="mb-12 hover:opacity-80 transition-opacity self-center flex flex-col items-center gap-3">
           <Image
-            src="/Vector 1.svg"
+            src="/Third Draft.svg"
             alt="Keystone Beaver Strategies"
             width={60}
             height={60}
@@ -114,7 +114,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="hover:opacity-80 transition-opacity">
             <Image
-              src="/Vector 1.svg"
+              src="/Third Draft.svg"
               alt="Keystone Beaver Strategies"
               width={50}
               height={50}
